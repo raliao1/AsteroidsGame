@@ -12,6 +12,12 @@ class Spaceship extends Floater
       yCorners[2] = 8;
       myColor = color(0, 0, 255);
     }
+    public double getX(){
+      return myCenterX;
+    }
+    public double getY(){
+      return myCenterY;
+    }
     public void hyperspace(){
       myCenterX = (int)(Math.random()*500);
       myCenterY = (int)(Math.random()*500);
