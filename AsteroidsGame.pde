@@ -1,3 +1,4 @@
+ArrayList <Asteroid> obs = new ArrayList <Asteroid>();
 Spaceship barry = new Spaceship();
 Star[] spaceSky = new Star[150];
 public void setup() 
@@ -7,6 +8,9 @@ public void setup()
   for(int i = 0; i < spaceSky.length; i++){
     spaceSky[i] = new Star();
   }
+  for(int i = 0; i < 20; i++){
+    obs.add(new Asteroid());
+  }
 }
 public void draw() 
 {
@@ -15,6 +19,14 @@ public void draw()
   barry.move();
   for(int i = 0; i < spaceSky.length; i++){
     spaceSky[i].show();
+  }
+  for(int i = 0; i < obs.size(); i++){
+    obs.get(i).show();
+    obs.get(i).move();
+    float d = dist((float)barry.getX(), (float)barry.getY(), (float)obs.get(i).getX(), (float)obs.get(i).getY());
+    if(d < 10){
+      obs.remove(i);
+    }
   }
 }
 public void keyPressed()
@@ -29,4 +41,3 @@ public void keyPressed()
     barry.hyperspace();
   }
 }
-
